@@ -78,7 +78,17 @@ class Board:
                                     if card.rect.collidepoint(event.pos):
                                         if card not in cards_revealed:
                                             clicked_cntr += 1
+
+                                            if card.color == (0,0,0):
+                                                if clicked_cntr == 1:
+                                                    cards_revealed.append(first_card)
+                                                    clicked_cntr = 1
+                                                else:
+                                                    cards_revealed.append(first_card)
+                                                    clicked_cntr = 0
+
                                             if clicked_cntr >= 2:
+                                                
                                                 if first_card == card:
                                                     pass
                                                 elif first_card.is_match(card):
